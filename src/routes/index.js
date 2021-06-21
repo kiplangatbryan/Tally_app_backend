@@ -8,7 +8,11 @@ router.use(authRoutes)
 router.use(villageRoutes)
 router.use(userRoutes)
 
-
+router.get('/', (req, res)=>{
+    return res.status(200).json({
+        msg: 'server is running'
+    })
+})
 
 
 module.exports = router
