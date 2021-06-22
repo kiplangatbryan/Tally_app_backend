@@ -15,8 +15,13 @@ dotenv.config({ path: path.join(__dirname, "../config/config.env") });
 const app = express();
 const port = process.env.PORT || 2222;
 
+
 app.use(logger("dev"));
-app.use(cors());
+app.use(cors( {
+  'origin': '*',
+  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  'preflightContinue': false
+}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 

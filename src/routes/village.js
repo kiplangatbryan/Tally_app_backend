@@ -7,6 +7,7 @@ const {
   editParticipant,
   setCompleted,
   popVillage,
+  updateVillage,
   generate_nth_number
 } = require("../controllers/village");
 
@@ -20,6 +21,9 @@ router.get("/fetchVillages", clientAuthorization, fetchVillages);
 
 router.post("/deleteVillage", clientAuthorization, popVillage);
 router.post("/setCompleted", clientAuthorization, setCompleted);
+
+router.post('/updateVillage', clientAuthorization, updateVillage)
+
 router.get('/generate_nth/:villageId', clientAuthorization, generate_nth_number)
 
 

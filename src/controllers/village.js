@@ -17,6 +17,32 @@ exports.createVillage = async (req, res, next) => {
   }
 };
 
+
+exports.updateVillage  = async (req, res, next)=>{
+    const { villageId, data } = req.body
+
+    try{
+      const village = await Village.findOne({
+        _id: villageId,
+      });
+
+      village.locality = data.locality,
+      village.name  = data.name
+
+      await village.save();
+
+      return res.status(200).json({
+        success: true,
+        msg: 'village updated!'
+      })
+    }
+    catch(err){
+      next(err)
+    }
+  
+
+}
+
 exports.addParticipant = async (req, res, next) => {
   try {
     // fetch the village and update
