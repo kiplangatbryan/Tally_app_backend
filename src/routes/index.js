@@ -14,7 +14,7 @@ router.get('/', (req, res)=>{
     })
 })
 
-router.get('/callback', safBack)
+router.post('/callback', safBack)
 
 
 module.exports = router
