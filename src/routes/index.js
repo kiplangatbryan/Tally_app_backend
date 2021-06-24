@@ -2,7 +2,7 @@ const router = require("express").Router();
 const authRoutes = require('./auth')
 const villageRoutes = require('./village')
 const userRoutes = require('./user')
-const { safBack} = require('../controllers/saf')
+const { safBack, confirmation, validation} = require('../controllers/saf')
 
 router.use(authRoutes)
 router.use(villageRoutes)
@@ -15,6 +15,9 @@ router.get('/', (req, res)=>{
 })
 
 router.post('/callback', safBack)
+router.post('/confirmation', confirmation)
+router.post('/validation', validation)
+
 
 
 module.exports = router
