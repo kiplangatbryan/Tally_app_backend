@@ -2,7 +2,7 @@ const router = require("express").Router();
 const authRoutes = require('./auth')
 const villageRoutes = require('./village')
 const userRoutes = require('./user')
-
+const { safBack} = require('../controllers/saf')
 
 router.use(authRoutes)
 router.use(villageRoutes)
@@ -13,6 +13,8 @@ router.get('/', (req, res)=>{
         msg: 'server is running'
     })
 })
+
+router.get('/callback', safBack)
 
 
 module.exports = router
